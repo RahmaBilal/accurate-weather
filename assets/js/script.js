@@ -66,4 +66,12 @@ const getUVIClassName = function (uvi) {
     }
   };
 
+
+const setCitiesInLS = function (cityName) {
+    const cities = JSON.parse(localStorage.getItem("recentCities")) ?? [];
   
+  if (!cities.includes(cityName)) {
+      cities.push(cityName);
+      localStorage.setItem("recentCities", JSON.stringify(cities));
+    }
+  };
