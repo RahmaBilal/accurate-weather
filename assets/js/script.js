@@ -12,3 +12,8 @@ const getCurrentData = function (name, forecastData) {
     iconCode: forecastData.current.weather[0].icon,
   };
 };
+
+const getFormattedDate = function (unixTimestamp, format = "DD/MM/YYYY") {
+    return moment.unix(unixTimestamp).format(format);
+};
+
