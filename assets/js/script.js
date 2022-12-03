@@ -54,3 +54,16 @@ return {
 };
 };
 
+const getUVIClassName = function (uvi) {
+    if (uvi >= 0 && uvi < 3) {
+      return "btn-success";
+    } else if (uvi >= 3 && uvi < 6) {
+      return "btn-warning";
+    } else if (uvi >= 6 && uvi < 8) {
+      return "btn-danger";
+    } else {
+      return "btn-dark";
+    }
+  };
+
+  
