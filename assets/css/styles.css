@@ -1,0 +1,32 @@
+:root {
+    --main: #ffff; 
+    --border: black;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  .search-text {
+    font-size: 30px;
+  }
+  
+  .navbar {
+    font-size: 30px;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .search-bar,
+  .cards {
+    background-color: white;
+  }
+  
+  .searchBtn {
+    margin: 20px;
+    border-radius: 5px;
+  }
+  
+  .searchBtn:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+  }
