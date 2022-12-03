@@ -17,3 +17,17 @@ const getFormattedDate = function (unixTimestamp, format = "DD/MM/YYYY") {
     return moment.unix(unixTimestamp).format(format);
 };
 
+const getForecastData = function (forecastData) {
+    const callback = function (each) {
+      return {
+        date: getFormattedDate(each.dt),
+        temperature: each.temp.max,
+        wind: each.wind_speed,
+        humidity: each.humidity,
+        iconCode: each.weather[0].icon,
+      };
+    };
+  
+    return forecastData.daily.slice(1, 6).map(callback);
+};
+
