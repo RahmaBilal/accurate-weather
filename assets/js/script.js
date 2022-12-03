@@ -75,3 +75,61 @@ const setCitiesInLS = function (cityName) {
       localStorage.setItem("recentCities", JSON.stringify(cities));
     }
   };
+
+
+  const renderForecastWeatherCards = function (forecastData) {
+    const constructForecastCard = function (each) {
+      return `<div class="card m-1 forecast-card">
+          <div class="card-body">
+          <h5 class="card-title">${each.date}</h5>
+          <p class="card-text">
+              <img src="https://openweathermap.org/img/w/${each.iconCode}.png" />
+          </p>
+          <p class="card-text">Temp: ${each.temperature}&deg;F</p>
+          <p class="card-text">Humidity: ${each.humidity}</p>
+          <p class="card-text">Wind: ${each.wind} MPH</p>
+          </div>
+      </div>`;
+    };
+  
+    const forecastCards = forecastData.map(constructForecastCard).join("");
+  
+    const forecastCardsContainer = `<div class="bg-white border">
+      <h3 class="p-3 text-center">5-Day Forecast:</h3>
+      <div
+          class="m-3 d-flex flex-wrap justify-content-around"
+          id=""
+      >${forecastCards}</div>
+      </div>`;
+  
+    weatherCardsContainer.append(forecastCardsContainer);
+  };
+  
+  const renderCurrentWeatherCard = function (currentData) {
+      const currentWeatherCard = `<div class="card-body bg-white border mb-2">
+        <h2 class="card-title">
+            ${currentData.name} ${currentData.date}
+            <img src="https://openweathermap.org/img/w/${
+              currentData.iconCode
+            }.png" />
+        </h2>
+        <p class="card-text">Temp: ${currentData.temperature}&deg;F</p>
+        <p class="card-text">Humidity: ${currentData.humidity}%</p>
+        <p class="card-text">Wind: ${currentData.wind} MPH</p>
+        <p class="card-text">
+          UV index: <span class="btn ${getUVIClassName(currentData.uvi)}">${
+        currentData.uvi
+      }</span>
+        </p>
+        </div>`;
+    
+      weatherCardsContainer.append(currentWeatherCard);
+    };
+  
+  
+  const renderWeatherCards = function (weatherData) {
+    renderCurrentWeatherCard(weatherData.current);
+  
+    renderForecastWeatherCards(weatherData.forecast);
+  };
+  
