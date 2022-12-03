@@ -44,7 +44,8 @@ The weather dashboard will include a 5-day forecast for the city that is searche
 Github URL:
 https://github.com/RahmaBilal/accurate-weather
 <br>
-Deployed URL:
+Deployed URL: 
+https://rahmabilal.github.io/accurate-weather/
 
 
 ---
