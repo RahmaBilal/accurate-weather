@@ -133,3 +133,38 @@ const setCitiesInLS = function (cityName) {
     renderForecastWeatherCards(weatherData.forecast);
   };
   
+
+  const renderRecentCities = function () {
+    const cities = JSON.parse(localStorage.getItem("recentCities")) ?? [];
+  
+    const citiesContainer = $("#city-list");
+  
+    citiesContainer.empty();
+  
+    const constructAndAppendCity = function (city) {
+      const liEl = `<li data-city=${city} class="list-group-item">${city}</li>`;
+      citiesContainer.append(liEl);
+    };
+  
+    const handleClick = function (event) {
+      const target = $(event.target);
+  
+      if (target.is("li")) {
+        const cityName = target.data("city");
+        renderWeatherInfo(cityName);
+      }
+    };
+  
+    citiesContainer.on("click", handleClick);
+  
+    cities.forEach(constructAndAppendCity);
+  };
+  
+  const renderWeatherInfo = async function (cityName) {
+    const weatherData = await getWeatherData(cityName);
+  
+    weatherCardsContainer.empty();
+  
+    renderWeatherCards(weatherData);
+  };
+
