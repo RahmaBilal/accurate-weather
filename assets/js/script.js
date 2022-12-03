@@ -168,3 +168,30 @@ const setCitiesInLS = function (cityName) {
     renderWeatherCards(weatherData);
   };
 
+  const handleSearch = async function (event) {
+    event.preventDefault();
+  
+    const cityName = $("#city-input").val();
+  
+    if (cityName) {
+      renderWeatherInfo(cityName);
+  
+      setCitiesInLS(cityName);
+  
+      renderRecentCities();
+    }
+  };
+  
+  const handleReady = function () {
+    renderRecentCities();
+  
+    const cities = JSON.parse(localStorage.getItem("recentCities")) ?? [];
+  
+    if (cities.length) {
+      const cityName = cities[cities.length - 1];
+      renderWeatherInfo(cityName);
+    }
+  };
+  
+  $("#search-form").on("submit", handleSearch);
+  $(document).ready(handleReady);
