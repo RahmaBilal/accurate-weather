@@ -31,7 +31,11 @@ The weather dashboard will include a 5-day forecast for the city that is searche
 
 ### Screenshots
 
+<img width="1440" alt="Screenshot 2022-12-03 at 21 36 08" src="https://user-images.githubusercontent.com/108250116/205463173-eb433716-6401-4766-8911-7e7272de53bf.png">
 
+<img width="1440" alt="Screenshot 2022-12-03 at 21 36 37" src="https://user-images.githubusercontent.com/108250116/205463179-d03ce1f7-546a-47c0-bc9e-85f4c16a5d25.png">
+
+<img width="1440" alt="Screenshot 2022-12-03 at 21 36 44" src="https://user-images.githubusercontent.com/108250116/205463183-34cc9e93-2721-4641-94f5-0299e6c0408e.png">
 
 ---
 
